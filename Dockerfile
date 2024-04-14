@@ -11,4 +11,4 @@ COPY . /usr/src/app
 ENV CLASSPATH=/usr/src/app
 
 # Define the command to run your application
-CMD ["java", "your_main_class_here"]
+CMD ["java", "src/project/ConnectionProvider.java"]
