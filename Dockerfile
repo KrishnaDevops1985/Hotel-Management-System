@@ -1,14 +1,15 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:11-jre-slim
+# Use a base image with Java installed
+FROM openjdk:11-jdk-slim
 
-# Set the working directory in the container
-WORKDIR /usr/src/app
+# Set the working directory inside the container
+WORKDIR /app
 
-# Copy the compiled classes and resources into the container
-COPY . /usr/src/app
+# Copy all the necessary files into the container
+COPY . /app
 
-# Set the classpath to the directory containing your compiled classes
-ENV CLASSPATH=/usr/src/app
+# Compile the Java source files and create a JAR file
+RUN javac *.java
+RUN jar cfe app.jar Start *.class
 
-# Define the command to run your application
-CMD ["java", "src/hotel/management/system/HotelManagementSystem.java"]
+# Set the default command to run the application
+CMD ["java", "-jar", "app.jar"]
