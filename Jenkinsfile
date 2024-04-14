@@ -5,7 +5,7 @@ pipeline {
        stage('Checkout Source Code') {
             steps {
                 // Checkout the source code from your Git repository
-                git credentialsId: 'your-git-credentials-id', url: 'https://github.com/KrishnaDevops1985/Hotel-Management-System.git', branch: 'master'
+                git credentialsId: 'Github-Jenkins', url: 'https://github.com/KrishnaDevops1985/Hotel-Management-System.git', branch: 'master'
             }
         }
         stage('Build Docker Image') {
